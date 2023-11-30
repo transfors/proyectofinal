@@ -16,7 +16,6 @@ public class Tecnico extends Miembro implements Serializable {
     @OneToMany(mappedBy = "idEspecialidades")
     private List<Especialidad> especialidades = new ArrayList<>();
     private boolean disponible;
-
     public int[] IncidentesResueltos;
     @OneToMany
     private List<Estimacion> estimaciones = new ArrayList<>();

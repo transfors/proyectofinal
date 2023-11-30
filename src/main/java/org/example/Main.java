@@ -56,7 +56,7 @@ public class Main {
         for (Tecnico t: tecnicos) {
             List<Incidente> resueltosPorTecnico = incidentes.stream().filter(h -> h.ocurrioHaceNdias(n) && h.getTecnicoAsignado() == t).collect(Collectors.toList());
             float promedioTiempo = resueltosPorTecnico.stream().mapToLong(incidente -> incidente.getFechaResolucion() - incidente.getFechaCreacion()).boxed().collect(Collectors.summingLong(Long::longValue));
-            if (promedioTiempo < mejorPromedioTiempo || mejorPromedioTiempo == 0){
+            if (promedioTiempo / resueltosPorTecnico.size() < mejorPromedioTiempo || mejorPromedioTiempo == 0){
                 tecnicoTop = t;
                 mejorPromedioTiempo = promedioTiempo;
             }
